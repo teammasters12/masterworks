@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .post {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .post:last-child {
+            border-bottom: none;
+        }
+        .post h2 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .post p {
+            color: #666;
+        }
+        .post a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .post a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>My Blog</h1>
+    </nav>
+    <div class="container" id="posts-container">
+        <!-- Posts will be loaded here dynamically -->
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const posts = [
+                { id: 1, title: "First Blog Post", excerpt: "This is an excerpt of the first post." },
+                { id: 2, title: "Second Blog Post", excerpt: "This is an excerpt of the second post." }
+            ];
+            
+            const postsContainer = document.getElementById("posts-container");
+            posts.forEach(post => {
+                const postElement = document.createElement("div");
+                postElement.classList.add("post");
+                postElement.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <p>${post.excerpt}</p>
+                    <a href="#">Read More</a>
+                `;
+                postsContainer.appendChild(postElement);
+            });
+        });
+    </script>
+</body>
+</html>
